@@ -14,7 +14,7 @@
         <hr>
         <CheckBoxes @onCheckBoxesChange="formValues.checkBoxesValue = $event"></CheckBoxes>
         <hr>
-        <SubmitButton @onSubmit="submitForm" :isInvalid="false"></SubmitButton>        
+        <SubmitButton @onSubmit="submitForm" :isInvalid="false"></SubmitButton>
     </form>
 </template>
 
@@ -62,10 +62,10 @@
             isInvalid() {
                 return this.$refs.myText.$v.$invalid || this.$refs.email.$v.$invalid
             },
-            submitForm() {                
-                if (this.isInvalid()) { 
-                    this.$refs.myText.$v.myText.$touch(); 
-                    this.$refs.email.$v.emailValue.$touch(); 
+            submitForm() {
+                if (this.isInvalid()) {
+                    this.$refs.myText.$v.myText.$touch();
+                    this.$refs.email.$v.emailValue.$touch();
                     return undefined;
                 }
                 axios
@@ -80,7 +80,7 @@
                     })
                     .then(() => console.log('Ok'))
                     .catch(() => console.log('Error'));
-            }, 
+            },
         },
         async mounted() {
             const res = await fetch('/api/users');
