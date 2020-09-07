@@ -1,16 +1,14 @@
 <template>
     <div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">1</label>
+            <input v-model="radioValue" class="form-check-input" type="radio" name="inlineRadioOptions"
+                id="inlineRadio1" :value="sex[0]">
+            <label class="form-check-label" for="inlineRadio1">{{ sex[0] }}</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">2</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-            <label class="form-check-label" for="inlineRadio3">3</label>
+            <input v-model="radioValue" class="form-check-input" type="radio" name="inlineRadioOptions"
+                id="inlineRadio2" :value="sex[1]">
+            <label class="form-check-label" for="inlineRadio2">{{ sex[1] }}</label>
         </div>
     </div>
 </template>
@@ -18,6 +16,20 @@
 <script lang="ts">
     import Vue from 'vue'
     export default Vue.extend({
-        name: 'ExampleRadio'
+        name: 'ExampleRadio',
+        data() {
+            return {
+                sex: [
+                    'Male',
+                    'Female'
+                ],
+                radioValue: ""
+            }
+        },
+        watch: {
+            radioValue() {
+                this.$emit("onRadioChanged", this.radioValue)
+            }
+        }
     })
 </script>

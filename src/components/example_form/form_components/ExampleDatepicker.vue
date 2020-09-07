@@ -1,21 +1,21 @@
 <template>
-    <div class="form-group">
-        <label for="inputDate">Example date</label>
-        <date-picker @input="onChange" :placeholder="datetimeNow" v-model="date"></date-picker>
-      </div>
+  <div class="form-group">
+    <label for="inputDate">Example date</label>
+    <date-picker @input="onChange" :placeholder="datetimeNow" v-model="date"></date-picker>
+  </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import DatePicker from 'vue2-datepicker';
-import 'vue2-datepicker/index.css';
+  import Vue from 'vue'
+  import DatePicker from 'vue2-datepicker';
+  import 'vue2-datepicker/index.css';
 
-export default Vue.extend({
+  export default Vue.extend({
     name: 'Datepicker',
     data() {
       return {
         date: ""
-      }      
+      }
     },
     computed: {
       datetimeNow(): string {
@@ -28,13 +28,13 @@ export default Vue.extend({
       }
     },
     methods: {
-      onChange: function() {
+      onChange: function () {
         console.log(this.$emit)
         this.$emit('input', this.date);
       }
     },
     components: {
-        DatePicker
+      DatePicker
     }
-})
+  })
 </script>

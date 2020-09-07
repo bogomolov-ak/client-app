@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <NavBar></NavBar>    
+    <NavBar></NavBar>
     <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';   
+  import Vue from 'vue';
   import NavBar from './components/nav_bar/ExampleNavBar.vue'
 
   export default Vue.extend({
     name: 'App',
-    components: {      
+    components: {
       NavBar,
     }
   });
@@ -23,6 +23,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;     
+    color: #2c3e50;
   }
 </style>

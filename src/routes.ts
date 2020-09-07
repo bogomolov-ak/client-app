@@ -4,8 +4,7 @@ import Search from './pages/Search.vue'
 
 
 export default new VueRouter({
-    routes: [
-        {
+    routes: [{
             path: '', //localhost:8081
             component: Form
         },
@@ -16,4 +15,3 @@ export default new VueRouter({
     ],
     mode: 'history'
 })
-

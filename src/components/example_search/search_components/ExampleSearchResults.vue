@@ -1,25 +1,26 @@
 <template>
     <div>
         <ul>
-            <li v-for="result in results" :key="result">
-                <SearchResult></SearchResult>
-                </li>
+            <SearchResult v-for="result in searchResult" :key="result" :elements="result"></SearchResult>
         </ul>
     </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import SearchResult from './ExampleSearchResult.vue'
-export default Vue.extend({
-    name: 'SearchResults',
-    components: {
-        SearchResult,
-    },
-    data() {
-        return {
-            results: [SearchResult, SearchResult]
+    import Vue from 'vue'
+    import SearchResult from './ExampleSearchResult.vue'
+
+    export default Vue.extend({
+        name: 'SearchResults',
+        components: {
+            SearchResult,
+        },
+        props: {
+            searchInput: String,
+            searchResult: Array,
+        },
+        data() {
+            return {}
         }
-    }
-})
+    })
 </script>
