@@ -62,7 +62,7 @@
             isInvalid() {
                 return this.$refs.myText.$v.$invalid || this.$refs.email.$v.$invalid
             },
-            submitForm() {
+            submitForm() {                
                 if (this.isInvalid()) {
                     this.$refs.myText.$v.myText.$touch();
                     this.$refs.email.$v.emailValue.$touch();
@@ -78,8 +78,11 @@
                         radioValue: this.formValues.radioValue,
                         checkBoxesValue: this.formValues.checkBoxesValue.join(' '),
                     })
-                    .then(() => console.log('Ok'))
-                    .catch(() => console.log('Error'));
+                    .then(() => {
+                        console.log('Ok');
+                        })
+                    .catch(() => console.log('Error'))
+                    .finally(() => this.$store.commit('clearForm'));
             },
         },
         async mounted() {

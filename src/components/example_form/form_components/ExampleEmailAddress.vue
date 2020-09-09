@@ -16,9 +16,14 @@
 
     export default Vue.extend({
         name: 'ExampleEmailAddress',
-        data() {
-            return {
-                emailValue: ""
+        computed: {
+            emailValue: {
+                get() {
+                    return this.$store.state.email;
+                },
+                set(value) {
+                    this.$store.commit('updateEmail', value);
+                }
             }
         },
         watch: {

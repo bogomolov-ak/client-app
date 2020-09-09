@@ -23,7 +23,16 @@
                     'Male',
                     'Female'
                 ],
-                radioValue: ""
+            }
+        },
+        computed: {
+            radioValue: {
+                get() {
+                    return this.$store.state.radio;
+                },
+                set(value) {
+                    this.$store.commit("updateRadio", value)
+                }
             }
         },
         watch: {

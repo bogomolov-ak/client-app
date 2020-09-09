@@ -16,14 +16,19 @@
 
     export default Vue.extend({
         name: 'ExampleText',
-        data() {
-            return {
-                myText: ""
+        computed: {
+            myText: {
+                get () {
+                    return this.$store.state.myText;
+                },
+                set (value) {
+                    this.$store.commit('updateMyText', value);
+                }
             }
         },
         watch: {
             myText() {
-                this.$emit("onMyTextChanged", this.myText)
+                this.$emit("onMyTextChanged", this.myText);                
             }
         },
         validations: {

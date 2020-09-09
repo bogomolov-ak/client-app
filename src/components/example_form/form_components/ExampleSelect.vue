@@ -11,14 +11,19 @@
   import Vue from 'vue'
   export default Vue.extend({
     name: 'ExampleSelect',
-    props: {
-      options: Array
-    },
-    data() {
-      return {
-        selectValue: ""
+    computed: {
+      selectValue: {
+        get () {
+          return this.$store.state.select;
+        },
+        set(value) {
+          this.$store.commit("updateSelect", value)
+        }
       }
     },
+    props: {
+      options: Array
+    },    
     watch: {
       selectValue() {
         this.$emit("onSelectChanged", this.selectValue)

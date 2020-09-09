@@ -9,9 +9,14 @@
     import Vue from 'vue'
     export default Vue.extend({
         name: 'ExampleTextarea',
-        data() {
-            return {
-                textareaValue: ""
+        computed: {
+            textareaValue: {
+                get () {
+                    return this.$store.state.textarea;
+                },
+                set (value) {
+                    this.$store.commit("updateTextarea", value)
+                }
             }
         },
         watch: {
