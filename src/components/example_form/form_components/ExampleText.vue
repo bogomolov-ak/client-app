@@ -13,22 +13,22 @@
         required
     } from 'vuelidate/lib/validators'
 
-
     export default Vue.extend({
         name: 'ExampleText',
         computed: {
             myText: {
-                get () {
+                get() {
                     return this.$store.state.myText;
                 },
-                set (value) {
+                set(value) {
                     this.$store.commit('updateMyText', value);
                 }
-            }
+            },
+            // ...mapState(['myText']),
         },
         watch: {
             myText() {
-                this.$emit("onMyTextChanged", this.myText);                
+                this.$emit("onMyTextChanged", this.myText);
             }
         },
         validations: {
